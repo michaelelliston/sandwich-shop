@@ -7,8 +7,7 @@ public class SandwichShop {
 
         double regularSandwichPrice = 5.45;
         double largeSandwichPrice = 8.95;
-        double basePrice = 0.00;
-        double finalPrice = 0;
+        double sandwichPrice = 0;
         double studentDiscount = 0.1;
         double seniorDiscount = 0.2;
 
@@ -17,10 +16,10 @@ public class SandwichShop {
         double sandwichSize = Double.parseDouble(input);
 
         if (sandwichSize == 1) {
-            basePrice = regularSandwichPrice;
+            sandwichPrice = regularSandwichPrice;
         }
         else if (sandwichSize == 2) {
-            basePrice = largeSandwichPrice;
+            sandwichPrice = largeSandwichPrice;
         }
         else System.err.println("Invalid selection.");
 
@@ -29,16 +28,16 @@ public class SandwichShop {
         double customerAge = Float.parseFloat(input);
 
         if (customerAge < 18 && customerAge > 0) {
-            finalPrice = basePrice - (basePrice * studentDiscount);
+            sandwichPrice = sandwichPrice - (sandwichPrice * studentDiscount);
         }
         else if (customerAge >= 65) {
-            finalPrice = basePrice - (basePrice * seniorDiscount);
+            sandwichPrice = sandwichPrice - (sandwichPrice * seniorDiscount);
         }
-        else if (customerAge < 65 && customerAge >= 18) {
-            finalPrice = basePrice;
+        else if (customerAge < 65 && customerAge >= 18) { // Redundant? Better way to do this?
+            sandwichPrice = sandwichPrice;
         }
         else System.err.println("Invalid input.");
 
-        System.out.printf("Thank you! The price of your sandwich is: $%.2f", finalPrice);
+        System.out.printf("Thank you! The price of your sandwich is: $%.2f", sandwichPrice);
     }
 }
