@@ -2,17 +2,16 @@ import java.util.Scanner;
 
 public class SandwichShop {
     static Scanner myScanner = new Scanner(System.in);
+    static double regularSandwichPrice = 5.45;
+    static double largeSandwichPrice = 8.95;
+    static double finalSandwichPrice = 0.00;
+    static double studentDiscount = 0.10;
+    static double seniorDiscount = 0.20;
+    static double loadedRegular = 1.00;
+    static double loadedLarge = 1.75;
+    static double loadedInput;
 
     public static void main(String[] args) {
-
-        double regularSandwichPrice = 5.45;
-        double largeSandwichPrice = 8.95;
-        double finalSandwichPrice = 0.00;
-        double studentDiscount = 0.10;
-        double seniorDiscount = 0.20;
-        double loadedRegular = 1.00;
-        double loadedLarge = 1.75;
-        double loadedInput;
 
         System.out.println("Welcome! Please select a size: \n1. Regular: Base price $5.45\n2. Large: Base price $8.95");
         String input = myScanner.nextLine();
@@ -41,6 +40,7 @@ public class SandwichShop {
         } else if (customerAge >= 65) {
             finalSandwichPrice = finalSandwichPrice - (finalSandwichPrice * seniorDiscount);
         } else if (customerAge < 65 && customerAge >= 18) { // Redundant? Better way to do this?
+            //noinspection DataFlowIssue
             finalSandwichPrice = finalSandwichPrice;
         } else System.err.println("Invalid input.");
 
